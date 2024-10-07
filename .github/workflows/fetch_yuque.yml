@@ -1,0 +1,41 @@
+name: 获取语雀文档
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: 同步
+    runs-on: ubuntu-latest
+    env:
+      YUQUE_COOKIE: ${{ secrets.YUQUE_COOKIE }}
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v3
+    
+    - name: 设置 Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    
+    - name: 安装依赖
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: 运行获取脚本
+      run: python fetch_yuque_doc.py
+    
+    - name: 提交并推送更改
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add yuque_doc.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "更新语雀文档" && git push)
