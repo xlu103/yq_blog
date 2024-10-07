@@ -4,6 +4,11 @@ import json
 import os
 import re
 import urllib.parse
+# 从环境变量获取 YUQUE_COOKIE
+YUQUE_COOKIE = os.environ.get('YUQUE_COOKIE')
+
+if not YUQUE_COOKIE:
+    raise ValueError("未能从环境变量中获取 YUQUE_COOKIE")
 
 # 全局变量
 BASE_URL = 'https://www.yuque.com/api/modules/table/doc/TableRecordController/show?docId=188343884&docType=Doc&limit=5000&offset=0&sheetId=efe4g4rgg2qk8kaz1qmavg60zhho10np'
