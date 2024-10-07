@@ -6,7 +6,6 @@ import re
 import urllib.parse
 
 # 全局变量
-YUQUE_COOKIE = os.environ.get('YUQUE_COOKIE', 'eceive-cookie-deprecation=1; lang=zh-cn; _yuque_session=GjmDSBKgdOqFpJrwqFMTeQ00Yt59oPlmsMbrZvWCabhz0RWlkGWnm4GMcgL5Dvb8mnmjHYHwbev64sQSWoi5BA==; _uab_collina=172554126784662255176215; aliyungf_tc=2b9b9559f1f36209b3dd089d48b929e384ff870b1b0df064dbd7bcf7fe43fc11; yuque_ctoken=6wcI5a0YBCK0bplhQ8HenRbk; receive-cookie-deprecation=1; current_theme=default; acw_tc=ac11000117282889338291382ec239feece1dfac4d6f07aac96b55c9b85a50')
 BASE_URL = 'https://www.yuque.com/api/modules/table/doc/TableRecordController/show?docId=188343884&docType=Doc&limit=5000&offset=0&sheetId=efe4g4rgg2qk8kaz1qmavg60zhho10np'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 OUTPUT_FILE = 'yuque_doc.js'
