@@ -40,4 +40,17 @@ jobs:
         git add yuque_doc.js
         git diff --quiet && git diff --staged --quiet || (git commit -m "更新语雀文档")
         git pull --rebase origin main
-        git push
+        if [ $? -ne 0 ]; then
+          echo "发生冲突,正在尝试解决..."
+          git status | grep "both modified:" | awk '{print $3}' | xargs git add
+          git rebase --continue
+          if [ $? -ne 0 ]; then
+            echo "无法自动解决冲突,请手动处理"
+            exit 1
+          fi
+        fi
+        git push || (git pull && git push)
+        if [ $? -ne 0 ]; then
+          echo "推送失败,可能需要手动处理冲突"
+          exit 1
+        fi

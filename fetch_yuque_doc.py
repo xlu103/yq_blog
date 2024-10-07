@@ -43,6 +43,7 @@ def fetch_yuque_doc():
         print(links)
         # 去重链接
         links = list(set(links))
+        
         for link in links:
             print(link)
             try:
@@ -58,7 +59,9 @@ def fetch_yuque_doc():
                 print(f"处理文章 {link} 数据时出错: {e}")
             except Exception as e:
                 print(f"处理文章 {link} 时发生未知错误: {e}")
-        
+        # 按创建时间倒序排序文章列表
+        article_list.sort(key=lambda x: x['create_time'], reverse=True)
+        print("文章已按创建时间倒序排序")
         if not article_list:
             print("未找到符合格式的链接")
         else:
