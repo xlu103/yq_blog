@@ -1,5 +1,14 @@
 const articleList = [
   {
+    "title": "《我的第一本人生规划手册》｜聚焦核心任务，避免陷入不必要的忙碌和迷茫 · 语雀",
+    "description": "你以为可以弯道超车来加速，结局确是拐弯的时候栽倒在阴沟里。",
+    "url": "https://www.yuque.com/xlu103/rvt9mr/wot2vxmm3z73sbs9",
+    "image": "https://cdn.nlark.com/yuque/0/2024/png/34813220/1728370259830-6c83df86-830c-465d-b60c-d8b75ed3db2a.png",
+    "create_time": "2024-10-08 09:37:40",
+    "update_time": "2024-10-09 09:31:39",
+    "link": "https://www.yuque.com/xlu103/rvt9mr/wot2vxmm3z73sbs9"
+  },
+  {
     "title": "《复盘》｜学会思考自己的思考 · 语雀",
     "description": "任何不以改变为目的的复盘都是假复盘。",
     "url": "https://www.yuque.com/xlu103/rvt9mr/am9x60rvhwzuqrbg",
